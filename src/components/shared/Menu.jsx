@@ -33,11 +33,11 @@ const useStyles = makeStyles((theme) => ({
   icon: {
     textDecoration: "none",
     fontSize: "40px",
-    color: "#ffd634",
+    color: "#1fb2a7",
   },
   selected: {
     color: "white",
-    background: "#ffd634",
+    background: "#1fb2a7",
   },
 }));
 
