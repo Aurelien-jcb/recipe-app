@@ -2,6 +2,7 @@ import { Grid, makeStyles } from '@material-ui/core';
 import React from 'react';
 import Welcome from '../components/home/Welcome';
 import SearchInput from '../components/home/SearchInput';
+import CategoriesSlider from '../components/home/CategoriesSlider';
 
 const useStyles = makeStyles((theme) => ({
     homeContainer: {
@@ -18,6 +19,7 @@ export default function Home() {
         <Grid container className={classes.homeContainer}>
             <Welcome />   
             <SearchInput /> 
+            <CategoriesSlider />
         </Grid>
     )
 }
