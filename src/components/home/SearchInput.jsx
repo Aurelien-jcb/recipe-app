@@ -18,17 +18,6 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const theme = createTheme({
-  palette: {
-    primary: {
-      light: 'red',
-      main: '#1fb2a7',
-      dark: '#002884',
-      contrastText: '#fff',
-    },
-  },
-});
-
 export default function SearchInput() {
   const classes = useStyles();
 
@@ -36,7 +25,6 @@ export default function SearchInput() {
     <>
       <Grid container item xs={12} className={classes.root}>
         <FormControl variant="outlined">
-        <ThemeProvider theme={theme}>
           <OutlinedInput
             id="outlined-adornment-weight"
             // value={values.weight}
@@ -47,7 +35,6 @@ export default function SearchInput() {
             className={classes.searchInput}
             placeholder="Chercher une recette"
           />
-          </ThemeProvider>
         </FormControl>
       </Grid>
     </>
