@@ -1,0 +1,15 @@
+{
+    "appName": "CookedIn",
+    "prod": false,
+    "apiUrl": "http://localhost:8800",
+    "culture":"fr",
+    "logger": {
+        "level": {
+            "debug": true,
+            "warning": true,
+            "error": true,
+            "state": true
+        }
+    },
+    "version" : "1.0.0.0"
+}

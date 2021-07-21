@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Button from "@material-ui/core/Button";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import TextField from "@material-ui/core/TextField";
@@ -27,13 +27,32 @@ const useStyles = makeStyles((theme) => ({
     margin: theme.spacing(3, 0, 2),
     backgroundColor: "#1fb2a7",
   },
-  link:{
+  link: {
     color: "#1fb2a7",
-  }
+  },
 }));
 
 export default function SignIn() {
   const classes = useStyles();
+  const [userData, setUserData] = useState({
+    email: "",
+    password: "",
+    rememberMe: false,
+  });
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    // const { email, password, cpassword } = this.state;
+    // if (!email || email.length === 0) return;
+    // if (!password || password.length === 0 || password !== cpassword) return;
+    // try {
+    //   const { data } = await API.signup({ email, password });
+    //   localStorage.setItem("token", data.token);
+    //   window.location = "/dashboard";
+    // } catch (error) {
+    //   console.error(error);
+    // }
+  };
+  console.log(userData);
 
   return (
     <Container component="main" maxWidth="xs">
@@ -51,6 +70,13 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={userData.email}
+            onChange={(email) =>
+              setUserData({
+                ...userData,
+                email: email ? email.target.value : "",
+              })
+            }
           />
           <TextField
             variant="outlined"
@@ -62,16 +88,33 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={userData.password}
+            onChange={(password) =>
+              setUserData({
+                ...userData,
+                password: password ? password.target.value : "",
+              })
+            }
           />
           <FormControlLabel
             control={<Checkbox value="remember" />}
             label="Se souvenir de moi"
+            value={userData.rememberMe}
+            onChange={(rememberMe) =>
+              setUserData({
+                ...userData,
+                rememberMe: !userData.rememberMe,
+              })
+            }
+            name="rememberMe"
+            id="rememberMe"
           />
           <Button
             type="submit"
             fullWidth
             variant="contained"
             color="primary"
+            onClick={handleSubmit}
             className={classes.submit}
           >
             Se connecter
@@ -90,7 +133,9 @@ export default function SignIn() {
           </Grid>
         </form>
       </div>
-      <Box mt={8}><Copyright /></Box>
+      <Box mt={8}>
+        <Copyright />
+      </Box>
     </Container>
   );
 }

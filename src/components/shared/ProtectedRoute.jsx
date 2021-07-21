@@ -5,10 +5,7 @@ export const ProtectedRoute = ({ component: Component, ...rest }) => (
     <Route exact {...rest} render={(props) => (
         ToolsKit.isUserAuthorized()
         ? <Component {...props} />
-        : <Redirect to={{
-            pathname: '/sign-in',
-            state: { from: props.location }
-          }} />
+        : <Redirect to='/sign-in' />
     )} />
   );
 
